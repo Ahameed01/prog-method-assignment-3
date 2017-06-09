@@ -18,12 +18,12 @@ import java.awt.event.*;
 public class Breakout extends GraphicsProgram {
 
 /** Width and height of application window in pixels */
-	public static final int APPLICATION_WIDTH = 400;
-	public static final int APPLICATION_HEIGHT = 600;
+	public static final int APPLICATION_WIDTH = 420;
+	public static final int APPLICATION_HEIGHT = 620;
 
 /** Dimensions of game board (usually the same) */
-	private static final int WIDTH = APPLICATION_WIDTH;
-	private static final int HEIGHT = APPLICATION_HEIGHT;
+	private static final int WIDTH = APPLICATION_WIDTH - 20;
+	private static final int HEIGHT = APPLICATION_HEIGHT - 20;
 
 /** Dimensions of the paddle */
 	private static final int PADDLE_WIDTH = 60;
@@ -61,20 +61,20 @@ public class Breakout extends GraphicsProgram {
 /** Runs the Breakout program. */
 	public void run() {
 		/* You fill this in, along with any subsidiary methods */
+		//designTheGame();
+		//playTheGame();
+		
+		
+		setSize (WIDTH, HEIGHT);
 		double x = getWidth() - BRICK_WIDTH;
  		double y = getHeight() - BRICK_HEIGHT;
  		for (int row = 0; row < 10; row++){
- 			createRow(x, y, (APPLICATION_WIDTH - row));
- 			y -= BRICK_HEIGHT;
- 			x += BRICK_WIDTH;
+ 			for (int column = 0; column < 10; column++){
+ 			}
  		}
 	}
  		
- 		private void createRow(double x, double y, int bricks) {
- 	 		for (int i = 0; i < bricks; i++) {
- 	 			createBrick((x * BRICK_WIDTH), y);
- 			}
- 		}
+ 		
  		private void createBrick(double x, double y) {
  	 		GRect rect = new GRect(x, y, BRICK_WIDTH, BRICK_HEIGHT);
  	 		add(rect);
