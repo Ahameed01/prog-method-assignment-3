@@ -62,6 +62,7 @@ public class Breakout extends GraphicsProgram {
 	public void run() {
 		/* You fill this in, along with any subsidiary methods */
 		GImage image = new GImage("WITH GOD.jpg");
+		image.scale(1.2,1.6);
 		add(image, 0, 0);
 		designTheGame();
 		//playTheGame();
