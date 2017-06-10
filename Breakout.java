@@ -61,8 +61,7 @@ public class Breakout extends GraphicsProgram {
 /** Runs the Breakout program. */
 	public void run() {
 		/* You fill this in, along with any subsidiary methods */
-		GImage image = new GImage("WITH GOD.jpg");
-		image.scale(1.2,1.6);
+		GImage image = new GImage("background 1.png");
 		add(image, 0, 0);
 		designTheGame();
 		//playTheGame();
@@ -114,7 +113,7 @@ public class Breakout extends GraphicsProgram {
  	 private void drawBall(){
  		 GOval ball = new GOval (WIDTH/2 - BALL_RADIUS, HEIGHT/2 - BALL_RADIUS, BALL_RADIUS, BALL_RADIUS);
  		 ball.setFilled(true);
- 		 ball.setColor(Color.PINK);
+ 		 ball.setColor(Color.WHITE);
  		 add (ball);
  	 }
  		
