@@ -61,25 +61,34 @@ public class Breakout extends GraphicsProgram {
 /** Runs the Breakout program. */
 	public void run() {
 		/* You fill this in, along with any subsidiary methods */
-		//designTheGame();
+		designTheGame();
 		//playTheGame();
-		
-		
+	}
+		private void designTheGame(){
 		setSize (WIDTH, HEIGHT);
-		double x = getWidth() - BRICK_WIDTH;
- 		double y = getHeight() - BRICK_HEIGHT;
- 		for (int row = 0; row < 10; row++){
+		drawBricks(0, BRICK_Y_OFFSET);
+		//drawPaddle();
+		//drawBall();
+		}
+		private void drawBricks(double x, double y){
+		for (int row = 0; row < 10; row++){
  			for (int column = 0; column < 10; column++){
- 			}
- 		}
-	}
- 		
- 		
- 		private void createBrick(double x, double y) {
- 	 		GRect rect = new GRect(x, y, BRICK_WIDTH, BRICK_HEIGHT);
+ 				double brcy = y + (BRICK_HEIGHT +BRICK_SEP) * row;
+ 		 		double brcx = x + (BRICK_WIDTH + BRICK_SEP) *column;
+ 		 		}
+ 			GRect rect = new GRect(x, y, BRICK_WIDTH, BRICK_HEIGHT);
+ 			rect.setFilled(true);
  	 		add(rect);
+ 		}
+		
  		
-	}
+		}
+ 		
+ 		
+ 		
+ 	 		
+ 		
+	
 
 
 }
