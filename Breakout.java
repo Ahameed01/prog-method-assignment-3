@@ -92,14 +92,14 @@ public class Breakout extends GraphicsProgram {
  		 			rect.setColor(Color.CYAN);
  		 		}
  				add(rect);
- 		 		}
- 			
+ 		 		}	
  		}
-		
-		
 		}
  		
- 		
+ 		private void drawPaddle(){
+ 			double pdlx = getWidth()/2 - PADDLE_WIDTH/2;
+ 			double pdly = getHeight() - PADDLE_Y_OFFSET - PADDLE_HEIGHT;
+ 		}
  		
  	 		
  		
