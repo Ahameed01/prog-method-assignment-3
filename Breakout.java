@@ -70,17 +70,17 @@ public class Breakout extends GraphicsProgram {
 		//drawPaddle();
 		//drawBall();
 		}
-		private void drawBricks(double x, double y){
+		private void drawBricks(double brcx, double brcy){
 		for (int row = 0; row < 10; row++){
  			for (int column = 0; column < 10; column++){
- 				double brcy = y + (BRICK_HEIGHT +BRICK_SEP) * row;
- 		 		double brcx = x + (BRICK_WIDTH + BRICK_SEP) *column;
+ 				double y = brcy + (BRICK_HEIGHT +BRICK_SEP) * row;
+ 		 		double x = brcx + (BRICK_WIDTH + BRICK_SEP) *column;
  		 		
  		 		}
  			
  		}
 		
-		GRect rect = new GRect(x, y, BRICK_WIDTH, BRICK_HEIGHT);
+		GRect rect = new GRect(brcx, brcy, BRICK_WIDTH, BRICK_HEIGHT);
 			rect.setFilled(true);
 	 		add(rect);
 		}
