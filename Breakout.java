@@ -18,7 +18,7 @@ import java.awt.event.*;
 public class Breakout extends GraphicsProgram {
 
 /** Width and height of application window in pixels */
-	public static final int APPLICATION_WIDTH = 480;
+	public static final int APPLICATION_WIDTH = 520;
 	public static final int APPLICATION_HEIGHT = 640;
 
 /** Dimensions of game board (usually the same) */
