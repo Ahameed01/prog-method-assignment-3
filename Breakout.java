@@ -79,9 +79,7 @@ public class Breakout extends GraphicsProgram {
  	 			rect.setFilled(true);
  	 	 		add(rect);
  		 		}
- 			/*GRect rect = new GRect(x, y, BRICK_WIDTH, BRICK_HEIGHT);
- 			*rect.setFilled(true);
- 	 		*/add(rect);
+ 			
  		}
 		
  		
