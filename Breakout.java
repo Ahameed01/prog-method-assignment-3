@@ -77,6 +77,7 @@ public class Breakout extends GraphicsProgram {
  		 		double x = brcx + (BRICK_WIDTH + BRICK_SEP) *column;
  		 		GRect rect = new GRect(x, y, BRICK_WIDTH, BRICK_HEIGHT);
  				rect.setFilled(true);
+ 
  		 		if (row < 2){
  		 			rect.setColor(Color.RED);
  		 		}
