@@ -18,12 +18,12 @@ import java.awt.event.*;
 public class Breakout extends GraphicsProgram {
 
 /** Width and height of application window in pixels */
-	public static final int APPLICATION_WIDTH = 600;
+	public static final int APPLICATION_WIDTH = 480;
 	public static final int APPLICATION_HEIGHT = 640;
 
 /** Dimensions of game board (usually the same) */
-	private static final int WIDTH = APPLICATION_WIDTH;
-	private static final int HEIGHT = APPLICATION_HEIGHT;
+	private static final int WIDTH = APPLICATION_WIDTH - 80;
+	private static final int HEIGHT = APPLICATION_HEIGHT - 40;
 
 /** Dimensions of the paddle */
 	private static final int PADDLE_WIDTH = 60;
@@ -65,7 +65,7 @@ public class Breakout extends GraphicsProgram {
 		//playTheGame();
 	}
 		private void designTheGame(){
-		setSize (APPLICATION_WIDTH, APPLICATION_HEIGHT);
+		setSize (WIDTH, HEIGHT);
 		drawBricks(0, BRICK_Y_OFFSET);
 		//drawPaddle();
 		//drawBall();
