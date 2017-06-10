@@ -67,7 +67,7 @@ public class Breakout extends GraphicsProgram {
 		private void designTheGame(){
 		setSize (WIDTH, HEIGHT);
 		drawBricks(0, BRICK_Y_OFFSET);
-		//drawPaddle();
+		drawPaddle();
 		//drawBall();
 		}
 		private void drawBricks(double brcx, double brcy){
