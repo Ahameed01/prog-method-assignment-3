@@ -75,10 +75,13 @@ public class Breakout extends GraphicsProgram {
  			for (int column = 0; column < 10; column++){
  				double brcy = y + (BRICK_HEIGHT +BRICK_SEP) * row;
  		 		double brcx = x + (BRICK_WIDTH + BRICK_SEP) *column;
+ 		 		GRect rect = new GRect(x, y, BRICK_WIDTH, BRICK_HEIGHT);
+ 	 			rect.setFilled(true);
+ 	 	 		add(rect);
  		 		}
- 			GRect rect = new GRect(x, y, BRICK_WIDTH, BRICK_HEIGHT);
- 			rect.setFilled(true);
- 	 		add(rect);
+ 			/*GRect rect = new GRect(x, y, BRICK_WIDTH, BRICK_HEIGHT);
+ 			*rect.setFilled(true);
+ 	 		*/add(rect);
  		}
 		
  		
