@@ -114,7 +114,7 @@ public class Breakout extends GraphicsProgram {
  	 private void drawBall(){
  		 GOval ball = new GOval (WIDTH/2 - BALL_RADIUS, HEIGHT/2 - BALL_RADIUS, BALL_RADIUS, BALL_RADIUS);
  		 ball.setFilled(true);
- 		 ball.setColor(Color.WHITE);
+ 		 ball.setColor(Color.PINK);
  		 add (ball);
  	 }
  		
