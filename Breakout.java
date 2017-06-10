@@ -68,7 +68,7 @@ public class Breakout extends GraphicsProgram {
 		setSize (WIDTH, HEIGHT);
 		drawBricks(0, BRICK_Y_OFFSET);
 		drawPaddle();
-		//drawBall();
+		drawBall();
 		}
 		private void drawBricks(double brcx, double brcy){
 		for (int row = 0; row < NBRICK_ROWS; row++){
@@ -106,7 +106,12 @@ public class Breakout extends GraphicsProgram {
  			addMouseListeners();
  		}
  		
- 	 		
+ 	 private void drawBall(){
+ 		 GOval ball = new GOval (WIDTH - BALL_RADIUS, HEIGHT - BALL_RADIUS, BALL_RADIUS, BALL_RADIUS);
+ 		 ball.setFilled(true);
+ 		 ball.setColor(Color.DARK_GRAY);
+ 		 add (ball);
+ 	 }
  		
 	
 
