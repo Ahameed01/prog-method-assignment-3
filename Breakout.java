@@ -71,8 +71,8 @@ public class Breakout extends GraphicsProgram {
 		//drawBall();
 		}
 		private void drawBricks(double brcx, double brcy){
-		for (int row = 0; row < 10; row++){
- 			for (int column = 0; column < 10; column++){
+		for (int row = 0; row < NBRICK_ROWS; row++){
+ 			for (int column = 0; column < NBRICKS_PER_ROW; column++){
  				double y = brcy + (BRICK_HEIGHT +BRICK_SEP) * row;
  		 		double x = brcx + (BRICK_WIDTH + BRICK_SEP) *column;
  		 		GRect rect = new GRect(x, y, BRICK_WIDTH, BRICK_HEIGHT);
