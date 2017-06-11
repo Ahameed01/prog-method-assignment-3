@@ -161,7 +161,7 @@ private static final int DELAY = 50;
 
 private static final double X_VEL = 30;
 
-private static final double Y_VEL = 3.0;
+private static final double Y_VEL = 30;
 
 private double xVel = X_VEL;
 
