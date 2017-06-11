@@ -57,6 +57,7 @@ public class Breakout extends GraphicsProgram {
 /** Number of turns */
 	private static final int NTURNS = 3;
 
+	private GRect paddle;
 /* Method: run() */
 /** Runs the Breakout program. */
 	public void run() {
@@ -104,12 +105,13 @@ public class Breakout extends GraphicsProgram {
  		private void drawPaddle(){
  			double x = getWidth()/2 - PADDLE_WIDTH/2;
  			double y = getHeight() - PADDLE_Y_OFFSET - PADDLE_HEIGHT;
- 			GRect paddle = new GRect (x, y, PADDLE_WIDTH, PADDLE_HEIGHT);
+ 			paddle = new GRect (x, y, PADDLE_WIDTH, PADDLE_HEIGHT);
  			paddle.setFilled(true);
  			paddle.setColor(Color.MAGENTA);
  			add (paddle);
  			addMouseListeners();
  		}
+ 		
  		public void mouseMoved(MouseEvent e){
  			double x = e.getX();
 			if( e.getX() >= 0 && e.getX() < (WIDTH - PADDLE_WIDTH)){
@@ -118,6 +120,7 @@ public class Breakout extends GraphicsProgram {
  				paddle.setLocation(WIDTH - PADDLE_WIDTH, HEIGHT - PADDLE_Y_OFFSET);
  			}
  		}
+ 		
  		
  	 private void drawBall(){
  		 GOval ball = new GOval (WIDTH/2 - BALL_RADIUS, HEIGHT/2 - BALL_RADIUS, BALL_RADIUS, BALL_RADIUS);
