@@ -58,6 +58,8 @@ public class Breakout extends GraphicsProgram {
 	private static final int NTURNS = 3;
 
 	private GRect paddle;
+	
+	private GOval ball;
 /* Method: run() */
 /** Runs the Breakout program. */
 	public void run() {
@@ -66,7 +68,7 @@ public class Breakout extends GraphicsProgram {
 		image.scale(0.8, 1.15);
 		add(image, 0, 0);
 		designTheGame();
-		//playTheGame();
+		playTheGame();
 	}
 		private void designTheGame(){
 		setSize (WIDTH, HEIGHT);
@@ -123,7 +125,7 @@ public class Breakout extends GraphicsProgram {
  		
  		
  	 private void drawBall(){
- 		 GOval ball = new GOval (WIDTH/2 - BALL_RADIUS, HEIGHT/2 - BALL_RADIUS, BALL_RADIUS, BALL_RADIUS);
+ 		 ball = new GOval (WIDTH/2 - BALL_RADIUS, HEIGHT/2 - BALL_RADIUS, BALL_RADIUS, BALL_RADIUS);
  		 ball.setFilled(true);
  		 ball.setColor(Color.DARK_GRAY);
  		 ball.setLocation((getWidth()/2), (getHeight() - PADDLE_Y_OFFSET - 20));
@@ -131,9 +133,35 @@ public class Breakout extends GraphicsProgram {
  		addMouseListeners();
  		 
  	 }
+ 	 
+ 	public void mouseClicked(MouseEvent e){
+			double x = e.getX();
+		if( e.getX() >= 0 && e.getX() < (WIDTH - BALL_RADIUS)){
+				moveTheBall();
+			} else if (e.getX() > WIDTH){
+				ball.setLocation(WIDTH - BALL_RADIUS, HEIGHT - PADDLE_Y_OFFSET - 20);
+			}
+		}
  		
-	//private void playTheGame();
+	private void playTheGame(){
+		moveTheBall();
+		//CheckForCollision();
+		pause(DELAY);
+	}
 	
+	private void moveTheBall(){
+		ball.move(xVel, yVel);		
+	}
 
 
+
+private static final int DELAY = 50;
+
+private static final double X_VEL = 3.0;
+
+private static final double Y_VEL = 3.0;
+
+private double xVel = X_VEL;
+
+private double yVel = Y_VEL;
 }
