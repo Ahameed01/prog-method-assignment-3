@@ -150,7 +150,7 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void moveTheBall(){
-		ball.move(xVel, yVel);		
+		ball.move(xVel, -yVel);		
 	}
 
 
