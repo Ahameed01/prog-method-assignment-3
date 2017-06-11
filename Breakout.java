@@ -107,7 +107,7 @@ public class Breakout extends GraphicsProgram {
  			double y = getHeight() - PADDLE_Y_OFFSET - PADDLE_HEIGHT;
  			paddle = new GRect (x, y, PADDLE_WIDTH, PADDLE_HEIGHT);
  			paddle.setFilled(true);
- 			paddle.setColor(Color.MAGENTA);
+ 			paddle.setColor(Color.BLACK);
  			add (paddle);
  			addMouseListeners();
  		}
@@ -125,7 +125,7 @@ public class Breakout extends GraphicsProgram {
  	 private void drawBall(){
  		 GOval ball = new GOval (WIDTH/2 - BALL_RADIUS, HEIGHT/2 - BALL_RADIUS, BALL_RADIUS, BALL_RADIUS);
  		 ball.setFilled(true);
- 		 ball.setColor(Color.WHITE);
+ 		 ball.setColor(Color.BLACK);
  		 ball.setLocation((getWidth()/2), (getHeight() - PADDLE_Y_OFFSET - 20));
  		 add (ball);
  		addMouseListeners();
