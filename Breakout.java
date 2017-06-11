@@ -102,13 +102,22 @@ public class Breakout extends GraphicsProgram {
 		}
  		
  		private void drawPaddle(){
- 			double pdlx = getWidth()/2 - PADDLE_WIDTH/2;
- 			double pdly = getHeight() - PADDLE_Y_OFFSET - PADDLE_HEIGHT;
- 			GRect paddle = new GRect (pdlx, pdly, PADDLE_WIDTH, PADDLE_HEIGHT);
+ 			double x = getWidth()/2 - PADDLE_WIDTH/2;
+ 			double y = getHeight() - PADDLE_Y_OFFSET - PADDLE_HEIGHT;
+ 			GRect paddle = new GRect (x, y, PADDLE_WIDTH, PADDLE_HEIGHT);
  			paddle.setFilled(true);
  			paddle.setColor(Color.MAGENTA);
  			add (paddle);
  			addMouseListeners();
+ 		}
+ 		public void mouseMoved(MouseEvent e){
+ 			double x = e.getX();
+ 			GRect paddle = new GRect (x, y, PADDLE_WIDTH, PADDLE_HEIGHT);
+			if( e.getX() >= 0 && e.getX() < (WIDTH - PADDLE_WIDTH)){
+ 				paddle.setLocation(e.getX(),getHeight() - PADDLE_Y_OFFSET - PADDLE_HEIGHT);
+ 			} else if (e.getX() > WIDTH){
+ 				paddle.setLocation(WIDTH - PADDLE_WIDTH, HEIGHT - PADDLE_Y_OFFSET);
+ 			}
  		}
  		
  	 private void drawBall(){
@@ -117,6 +126,8 @@ public class Breakout extends GraphicsProgram {
  		 ball.setColor(Color.WHITE);
  		 ball.setLocation((getWidth()/2), (getHeight() - PADDLE_Y_OFFSET - 20));
  		 add (ball);
+ 		addMouseListeners();
+ 		 
  	 }
  		
 	//private void playTheGame();
