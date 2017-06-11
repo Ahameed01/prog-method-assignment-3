@@ -114,7 +114,7 @@ public class Breakout extends GraphicsProgram {
  		 GOval ball = new GOval (WIDTH/2 - BALL_RADIUS, HEIGHT/2 - BALL_RADIUS, BALL_RADIUS, BALL_RADIUS);
  		 ball.setFilled(true);
  		 ball.setColor(Color.WHITE);
- 		 ball.setLocation((getWidth()/2), (getHeight() - PADDLE_Y_OFFSET - (PADDLE_HEIGHT * 2)));
+ 		 ball.setLocation((getWidth()/2)/2, (getHeight() - PADDLE_Y_OFFSET - (PADDLE_HEIGHT * 2)));
  		 add (ball);
  	 }
  		
