@@ -150,16 +150,16 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void moveTheBall(){
-		yVel += GRAVITY;
+		//yVel += GRAVITY;
 		ball.move(xVel, -yVel);		
 	}
 
 
-private static final double GRAVITY = 3;
+//private static final double GRAVITY = 3;
 
 private static final int DELAY = 50;
 
-private static final double X_VEL = 3.0;
+private static final double X_VEL = 30;
 
 private static final double Y_VEL = 3.0;
 
