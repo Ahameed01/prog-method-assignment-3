@@ -156,6 +156,8 @@ public class Breakout extends GraphicsProgram {
 	private void checkForCollision(){
 		if (ball.getX() > WIDTH - BALL_RADIUS){
 			ball.move(-xVel, -yVel);
+			double diff = ball.getX() - (WIDTH - BALL_RADIUS);
+			ball.move(0, -2 * diff);
 		}
 	}
 
