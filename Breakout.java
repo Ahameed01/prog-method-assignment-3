@@ -144,7 +144,7 @@ public class Breakout extends GraphicsProgram {
  		
 	private void playTheGame(){
 		moveTheBall();
-		checkForCollision();
+		//checkForCollision();
 		pause(DELAY);
 	}
 	
@@ -152,13 +152,7 @@ public class Breakout extends GraphicsProgram {
 		//yVel += GRAVITY;
 		ball.move(xVel, -yVel);		
 	}
-	private void checkForCollision(){
-		if (ball.getX() > WIDTH - BALL_RADIUS){
-			ball.move(-xVel, -yVel);
-			double diff = ball.getX() - (WIDTH - BALL_RADIUS);
-			ball.move(0, -2 * diff);
-		}
-	}
+	
 
 
 //private static final double GRAVITY = 3;
