@@ -129,7 +129,7 @@ public class Breakout extends GraphicsProgram {
  		 ball.setColor(Color.BLACK);
  		 ball.setLocation((getWidth()/2), (getHeight() - PADDLE_Y_OFFSET - 20));
  		 add (ball);
- 		addMouseListeners();
+ 		
  		 
  	 }
  	 
