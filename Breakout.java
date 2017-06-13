@@ -250,7 +250,7 @@ public class Breakout extends GraphicsProgram {
  		private void printLossMessage(){
  			GLabel label = new GLabel(LOST);
  			label.setFont("Times-72");
- 			add(label, getWidth(), (getHeight() + label.getAscent()) / 2);
+ 			add(label, getWidth() / 2, getHeight() / 2);
  			
  		}
  		
@@ -258,7 +258,7 @@ public class Breakout extends GraphicsProgram {
  		private void printWinMessage(){
  			GLabel label = new GLabel(WON);
  			label.setFont("Times-72");
- 			add(label, getWidth(), (getHeight() + label.getAscent()) / 2);
+ 			add(label, getWidth() / 2, getHeight() / 2);
  			
  		}
  		/** The number of pixels to shift the label on each cycle */
