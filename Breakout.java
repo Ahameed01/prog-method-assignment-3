@@ -84,8 +84,9 @@ public class Breakout extends GraphicsProgram {
 		 * designing the appearance of the game, specifying the maximum number of turns
 		 * and playing the game.*/
 		
-		designTheGame();
+		
 		for (int n = 0; n < NTURNS; n++){
+			designTheGame();
 			playTheGame();
 			if (brickCounter == 0){
 			ball.setVisible(false);
@@ -93,7 +94,7 @@ public class Breakout extends GraphicsProgram {
 			break;
 			}
 			else if (brickCounter > 0){
-				rect.setVisible(false);
+				removeAll();
 			}
 		}
 		if (brickCounter > 0){
@@ -102,7 +103,7 @@ public class Breakout extends GraphicsProgram {
 		
 	}
 		/* This part designs the outline of the game.The size of the game window,
-		 * the background image, the bricks, paddle and ball*/
+		 * the bricks, paddle and ball*/
 		private void designTheGame(){
 		setSize (WIDTH, HEIGHT);
 		GImage image = new GImage("background.jpg");
