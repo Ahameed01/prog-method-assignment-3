@@ -93,7 +93,7 @@ public class Breakout extends GraphicsProgram {
 			playTheGame();
 			if (brickCounter == 0){
 			ball.setVisible(false);
-			//printWinMessage();
+			printWinMessage();
 			break;
 			}
 			if (brickCounter > 0){
@@ -101,7 +101,7 @@ public class Breakout extends GraphicsProgram {
 			}
 		}
 		if (brickCounter > 0){
-			//printLossMessage();
+			printLossMessage();
 		}
 		
 	}
@@ -245,7 +245,38 @@ public class Breakout extends GraphicsProgram {
  				return null;
  			}
  		}
-	
-
-
+ 		
+	/* */
+ 		private void printLossMessage(){
+ 			GLabel label = new GLabel(LOST);
+ 			label.setFont("Times-72");
+ 			add(label, getWidth(), (getHeight() + label.getAscent()) / 2);
+ 			while (label.getX() + label.getWidth() > 0) {
+ 			label.move(-DELTA_X, 0);
+ 			pause(DELAY);
+ 		}
+ 		}
+ 		
+ 		/* */
+ 		private void printWinMessage(){
+ 			GLabel label = new GLabel(WON);
+ 			label.setFont("Times-72");
+ 			add(label, getWidth(), (getHeight() + label.getAscent()) / 2);
+ 			while (label.getX() + label.getWidth() > 0) {
+ 			label.move(-DELTA_X, 0);
+ 			pause(DELAY);
+ 		}
+ 		}
+ 		/** The number of pixels to shift the label on each cycle */
+ 		private static final double DELTA_X = 2.0;
+ 		
+ 		/** The string to use as the value of the label */
+ 		private static final String LOST =
+ 		" GAME OVER " +
+ 		"  YOU LOST " ;
+ 		
+ 		/** The string to use as the value of the label */
+ 		private static final String WON =
+ 		" GAME COMPLETE " +
+ 		"  YOU WON " ;
 }
