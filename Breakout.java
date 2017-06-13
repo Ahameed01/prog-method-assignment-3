@@ -250,7 +250,6 @@ public class Breakout extends GraphicsProgram {
  		private void printLossMessage(){
  			GLabel label = new GLabel(" GAME OVER " + "  YOU LOST!!! ", getWidth() / 2, getHeight() / 2);
  			
- 			label.setFont("Times-16");
  			
  			add(label);
  			
@@ -260,7 +259,7 @@ public class Breakout extends GraphicsProgram {
  		private void printWinMessage(){
  			GLabel label = new GLabel(" GAME COMPLETE " + "  YOU WON!!! ", getWidth() / 2, getHeight() / 2);
  			label.move(-label.getWidth() / 2, label.getHeight() / 2);
- 			label.setFont("Times-16");
+ 			
  			add(label);
  			
  		}
