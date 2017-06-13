@@ -86,6 +86,9 @@ public class Breakout extends GraphicsProgram {
 		
 		
 		for (int n = 0; n < NTURNS; n++){
+			GImage image = new GImage("background.jpg");
+			image.scale(0.8, 1.15);
+			add(image, 0, 0);
 			designTheGame();
 			playTheGame();
 			if (brickCounter == 0){
@@ -106,9 +109,6 @@ public class Breakout extends GraphicsProgram {
 		 * the bricks, paddle and ball*/
 		private void designTheGame(){
 		setSize (WIDTH, HEIGHT);
-		GImage image = new GImage("background.jpg");
-		image.scale(0.8, 1.15);
-		add(image, 0, 0);
 		drawBricks(0, BRICK_Y_OFFSET);
 		drawPaddle();
 		drawBall();
