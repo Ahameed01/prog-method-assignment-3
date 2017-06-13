@@ -251,10 +251,7 @@ public class Breakout extends GraphicsProgram {
  			GLabel label = new GLabel(LOST);
  			label.setFont("Times-72");
  			add(label, getWidth(), (getHeight() + label.getAscent()) / 2);
- 			while (label.getX() + label.getWidth() > 0) {
- 			label.move(-DELTA_X, 0);
- 			pause(DELAY);
- 		}
+ 			
  		}
  		
  		/* */
@@ -262,10 +259,7 @@ public class Breakout extends GraphicsProgram {
  			GLabel label = new GLabel(WON);
  			label.setFont("Times-72");
  			add(label, getWidth(), (getHeight() + label.getAscent()) / 2);
- 			while (label.getX() + label.getWidth() > 0) {
- 			label.move(-DELTA_X, 0);
- 			pause(DELAY);
- 		}
+ 			
  		}
  		/** The number of pixels to shift the label on each cycle */
  		private static final double DELTA_X = 2.0;
