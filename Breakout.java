@@ -64,29 +64,45 @@ public class Breakout extends GraphicsProgram {
 	private static final int DELAY = 25;
 	
 /** Total number of bricks */
-	private static final int brickCounter = 100;
+	private int brickCounter = 100;
 	
  /**Velocity of the ball */
 	private double vx, vy;
+	
+	private GRect rect;
 	
 	private GRect paddle;
 	
 	private GOval ball;
 /* Method: run() */
-/** Runs the Breakout program. */
+
+	/** Runs the Breakout program. */
 	public void run() {
-		/* You fill this in, along with any subsidiary methods */
+		
+		/* This method can be described as the complete overview of everything that is 
+		 * expected of this version of the breakout game.The main activities are
+		 * designing the appearance of the game, specifying the maximum number of turns
+		 * and playing the game.*/
 		
 		designTheGame();
 		for (int n = 0; n < NTURNS; n++){
-			//playTheGame();
+			playTheGame();
 			if (brickCounter == 0){
-				
+			ball.setVisible(false);
+			//printWinMessage();
+			break;
 			}
-			
+			else if (brickCounter > 0){
+				rect.setVisible(false);
+			}
+		}
+		if (brickCounter > 0){
+			//printLossMessage();
 		}
 		
 	}
+		/* This part designs the outline of the game.The size of the game window,
+		 * the background image, the bricks, paddle and ball*/
 		private void designTheGame(){
 		setSize (WIDTH, HEIGHT);
 		GImage image = new GImage("background.jpg");
@@ -97,12 +113,14 @@ public class Breakout extends GraphicsProgram {
 		drawBall();
 	
 		}
+		/* This part draws the bricks, arranges them and assigns the 
+		 * various colours to the bricks. */
 		private void drawBricks(double brcx, double brcy){
 		for (int row = 0; row < NBRICK_ROWS; row++){
  			for (int column = 0; column < NBRICKS_PER_ROW; column++){
  				double y = brcy + (BRICK_HEIGHT +BRICK_SEP) * row;
  		 		double x = brcx + (BRICK_WIDTH + BRICK_SEP) *column;
- 		 		GRect rect = new GRect(x, y, BRICK_WIDTH, BRICK_HEIGHT);
+ 		 		rect = new GRect(x, y, BRICK_WIDTH, BRICK_HEIGHT);
  				rect.setFilled(true);
  
  		 		if (row < 2){
@@ -123,7 +141,8 @@ public class Breakout extends GraphicsProgram {
  		 		}	
  		}
 		}
- 		
+ 		/* This method designs the paddle and positions it in the middle of the canvas
+ 		 * as its initial position. it is set to react to movement of the mouse. */
  		private void drawPaddle(){
  			double x = getWidth()/2 - PADDLE_WIDTH/2;
  			double y = getHeight() - PADDLE_Y_OFFSET - PADDLE_HEIGHT;
@@ -134,6 +153,9 @@ public class Breakout extends GraphicsProgram {
  			addMouseListeners();
  		}
  		
+ 		/* This method is called whenever an event is being listened for in the program
+ 		 * which in this case is the movement of the mouse in a specified range within
+ 		 * the game window. */
  		public void mouseMoved(MouseEvent e){
  			double x = e.getX();
  			if ((e.getX() < getWidth() - PADDLE_WIDTH/2) && (e.getX() > PADDLE_WIDTH/2)) {
@@ -142,8 +164,8 @@ public class Breakout extends GraphicsProgram {
 
  		}
  		
- 		
- 	 private void drawBall(){
+ 		/* The ball is designed in this method*/
+ 		private void drawBall(){
  		 ball = new GOval (WIDTH/2 - BALL_RADIUS, HEIGHT/2 - BALL_RADIUS, BALL_RADIUS, BALL_RADIUS);
  		 ball.setFilled(true);
  		 ball.setColor(Color.BLACK);
@@ -151,10 +173,78 @@ public class Breakout extends GraphicsProgram {
  		
  		 
  	 }
- 	 
+ 		/* This method designs all the aspects of what is needed to play the game. */
+ 		private void playTheGame(){
+ 			waitForClick();
+ 			getBallVelocity();
+ 			while (true){
+ 				moveBall();
+ 				if (ball.getY() >= getHeight()){
+ 					break;
+ 				}
+ 				if (brickCounter == 0){
+ 					break;
+ 				}
+ 			}
+ 		}
  	
+ 		/* This method generates the velocity of the ball around the game window. */
+ 		private void getBallVelocity(){
+ 			vy = 4.0;
+ 			vx = rgen.nextDouble(1.0, 3.0);
+ 			if (rgen.nextBoolean(0.5)){
+ 				vx = -vx;
+ 			}
+ 		}
  		
-	}
+ 		/* The ball's movement around the game window is designed here, including
+ 		 * collision with the walls, bricks and paddle and falling off the sides
+ 		 * of the paddle which signifies losing the game. */
+ 		private void moveBall(){
+ 			ball.move(vx,  vy);
+ 			
+ 		//To check for collision with the walls on both sides.
+ 			if ((ball.getX() - vx <= 0 && vx < 0) || (ball.getX() + vx >= (getWidth() - BALL_RADIUS * 2) && vx > 0)){
+ 			vx = -vx;
+ 			}
+ 		/*To check for collision at the top wall of the window, there's no need
+ 		 * checking for collision with the bottom wall because the will fall through
+ 		 * the side of the paddle and the player loses the game at that instant*/
+ 		if ((ball.getY() - vy <= 0 && vy < 0)){
+ 			vy = -vy;
+ 		}
+ 		//Checking for other objects, which are the paddle and bricks
+ 		GObject collider = getCollidingObject();
+ 		if (collider == paddle){
+ 			if (ball.getY() >= getHeight() - PADDLE_Y_OFFSET - PADDLE_HEIGHT - BALL_RADIUS * 2 && ball.getY() < getHeight() -PADDLE_Y_OFFSET - PADDLE_HEIGHT - BALL_RADIUS * 2 + 4){
+ 				vy = -vy;
+ 			}
+ 		}
+ 		else if (collider == rect){
+ 			remove(collider);
+ 			brickCounter--;
+ 			vy = -vy;
+ 		}
+ 		pause(DELAY);
+}
+ 		private GObject getCollidingObject(){
+ 			if ((getElementAt(ball.getX(), ball.getY())) != null){
+ 				return getElementAt(ball.getX(), ball.getY());
+ 			}
+ 			else if ((getElementAt((ball.getX() + BALL_RADIUS * 2), ball.getY()) != null)){
+ 				return (getElementAt((ball.getX() + BALL_RADIUS * 2), ball.getY()));
+ 			}
+ 			else if ((getElementAt((ball.getX() + BALL_RADIUS * 2), (ball.getY() + BALL_RADIUS * 2)) != null)){
+ 				return (getElementAt((ball.getX() + BALL_RADIUS * 2), ball.getY() + BALL_RADIUS * 2));
+ 			}
+ 			else if ((getElementAt((ball.getX()), (ball.getY() + BALL_RADIUS * 2)) != null)){
+ 				return (getElementAt((ball.getX()), ball.getY() + BALL_RADIUS * 2));
+ 			}
+ 			else{
+ 				return null;
+ 			}
+ 		}
 	
 
 
+}
