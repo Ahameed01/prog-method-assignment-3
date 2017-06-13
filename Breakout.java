@@ -132,14 +132,7 @@ public class Breakout extends GraphicsProgram {
  		 
  	 }
  	 
- 	public void mouseClicked(MouseEvent e){
-			double x = e.getX();
-		if( e.getX() >= 0 && e.getX() < (WIDTH - BALL_RADIUS)){
-				moveTheBall();
-			} else if (e.getX() > WIDTH){
-				ball.setLocation(WIDTH - BALL_RADIUS, HEIGHT - PADDLE_Y_OFFSET - 20);
-			}
-		}
+ 	
  		
 	private void playTheGame(){
 		moveTheBall();
