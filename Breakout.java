@@ -273,10 +273,10 @@ public class Breakout extends GraphicsProgram {
  		/** The string to use as the value of the label */
  		private static final String LOST =
  		" GAME OVER " +
- 		"  YOU LOST " ;
+ 		"  YOU LOST!!! " ;
  		
  		/** The string to use as the value of the label */
  		private static final String WON =
  		" GAME COMPLETE " +
- 		"  YOU WON " ;
+ 		"  YOU WON!!! " ;
 }
