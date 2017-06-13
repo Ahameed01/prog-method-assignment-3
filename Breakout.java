@@ -220,7 +220,7 @@ public class Breakout extends GraphicsProgram {
  				vy = -vy;
  			}
  		}
- 		else if (collider == rect){
+ 		else if (collider != null){
  			remove(collider);
  			brickCounter--;
  			vy = -vy;
