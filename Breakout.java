@@ -63,7 +63,11 @@ public class Breakout extends GraphicsProgram {
 /** Time delay between ball movement */
 	private static final int DELAY = 25;
 	
+/** Total number of bricks */
+	private static final int brickCounter = 100;
 	
+ /**Velocity of the ball */
+	private double vx, vy;
 	
 	private GRect paddle;
 	
@@ -72,14 +76,22 @@ public class Breakout extends GraphicsProgram {
 /** Runs the Breakout program. */
 	public void run() {
 		/* You fill this in, along with any subsidiary methods */
-		GImage image = new GImage("background.jpg");
-		image.scale(0.8, 1.15);
-		add(image, 0, 0);
+		
 		designTheGame();
-		//playTheGame();
+		for (int n = 0; n < NTURNS; n++){
+			//playTheGame();
+			if (brickCounter == 0){
+				
+			}
+			
+		}
+		
 	}
 		private void designTheGame(){
 		setSize (WIDTH, HEIGHT);
+		GImage image = new GImage("background.jpg");
+		image.scale(0.8, 1.15);
+		add(image, 0, 0);
 		drawBricks(0, BRICK_Y_OFFSET);
 		drawPaddle();
 		drawBall();
