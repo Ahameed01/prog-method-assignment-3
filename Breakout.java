@@ -249,8 +249,8 @@ public class Breakout extends GraphicsProgram {
 	/* */
  		private void printLossMessage(){
  			GLabel label = new GLabel(" GAME OVER " + "  YOU LOST!!! ", getWidth() / 2, getHeight() / 2);
- 			label.move(-label.getWidth() / 2, label.getHeight() / 2);
- 			label.setFont("Times-72");
+ 			
+ 			label.setFont("Times-36");
  			
  			add(label);
  			
