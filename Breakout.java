@@ -248,7 +248,7 @@ public class Breakout extends GraphicsProgram {
  		
 	/* */
  		private void printLossMessage(){
- 			GLabel label = new GLabel("LOST", getWidth() / 2, getHeight() / 2);
+ 			GLabel label = new GLabel(" GAME OVER " + "  YOU LOST!!! ", getWidth() / 2, getHeight() / 2);
  			label.move(-label.getWidth() / 2, label.getHeight() / 2);
  			label.setFont("Times-72");
  			
@@ -258,22 +258,11 @@ public class Breakout extends GraphicsProgram {
  		
  		/* */
  		private void printWinMessage(){
- 			GLabel label = new GLabel("WON", getWidth() / 2, getHeight() / 2);
+ 			GLabel label = new GLabel(" GAME COMPLETE " + "  YOU WON!!! ", getWidth() / 2, getHeight() / 2);
  			label.move(-label.getWidth() / 2, label.getHeight() / 2);
  			label.setFont("Times-72");
  			add(label);
  			
  		}
- 		/** The number of pixels to shift the label on each cycle */
- 		private static final double DELTA_X = 2.0;
  		
- 		/** The string to use as the value of the label */
- 		private static final String LOST =
- 		" GAME OVER " +
- 		"  YOU LOST!!! " ;
- 		
- 		/** The string to use as the value of the label */
- 		private static final String WON =
- 		" GAME COMPLETE " +
- 		"  YOU WON!!! " ;
 }
