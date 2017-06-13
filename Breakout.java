@@ -93,7 +93,7 @@ public class Breakout extends GraphicsProgram {
 			//printWinMessage();
 			break;
 			}
-			else if (brickCounter > 0){
+			if (brickCounter > 0){
 				removeAll();
 			}
 		}
