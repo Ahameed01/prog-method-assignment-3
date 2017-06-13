@@ -177,6 +177,9 @@ public class Breakout extends GraphicsProgram {
  		/* This method designs all the aspects of what is needed to play the game. */
  		private void playTheGame(){
  			waitForClick();
+ 			GImage image = new GImage("background.jpg");
+			image.scale(0.8, 1.15);
+			add(image, 0, 0);
  			getBallVelocity();
  			while (true){
  				moveBall();
